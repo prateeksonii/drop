@@ -21,7 +21,13 @@ export const appRoutes: Route[] = [
   },
   {
     path: '',
+    redirectTo: '/auth/login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'app',
     canActivate: [authGuard],
-    loadComponent: () => import('./app.component').then((c) => c.AppComponent),
+    loadComponent: () =>
+      import('./app/app.component').then((c) => c.AppComponent),
   },
 ];
